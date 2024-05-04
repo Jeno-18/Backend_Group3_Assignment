@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Tickets Management System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<style>
+.form-control[readonly] {
+	background-color: #f0f0f0;
+}
+
+.btn-return {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+}
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="#">Ticket Tracker System</a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" th:href="@{/homePage}">Ticket
+						Management</a></li>
+			</ul>
+		</div>
+	</nav>
+	<br>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div
+				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class="text-center">View Ticket Details</h1>
+				<div class="card-body">
+					<form>
+						<div class="form-group">
+							<label> Ticket title </label> <input type="text" name="title"
+								th:value="${ticketDetail.title}" class="form-control"
+								placeholder="Enter title" readonly />
+						</div>
+
+						<div class="form-group">
+							<label> Ticket Short Description </label> <input type="text"
+								name="description" th:value="${ticketDetail.description}"
+								class="form-control" placeholder="Enter Short Description"
+								readonly />
+						</div>
+
+						<div class="form-group">
+							<label> Ticket Creation Date </label> <input type="date"
+								name="createDate" th:value="${ticketDetail.createDate}"
+								class="form-control" readonly />
+						</div>
+
+						<div class="form-group">
+							<label> Ticket content</label>
+							<textarea name="content" th:field="*{ticketDetail.content}"
+								class="form-control"></textarea>
+						</div>
+					</form>
+
+				</div>
+				<a th:href="@{/homePage}" class="btn btn-primary btn-return">Return
+					to Home</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
